@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+logo {
+    width: 50px;
+    height: 50px;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 999;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+    nav ul li {
+        margin-left: 20px;
+    }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+            nav ul li a:hover {
+                color: red;
+            }
+
+.container {
+    height: calc(100vh - 60px);
+    display: flex;
+    margin-top: 10px;
+}
+
+.left-side {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+    .left-side h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+    }
+
+    .left-side h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+    }
+
+.cta-button {
+    background: red;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.5s;
+}
+
+.right-side {
+    flex: 1;
+    position: relative;
+    padding: 20px;
+    min-height: 300px;
+}
+
+.animated-image {
+    position: fixed;
+    top: 55%;
+    left: 75%;
+    max-width: 400px;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, calc(-50% + 20px));
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Módosított footer rész */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: small;
+    border: none;
+}
+
+    footer a {
+        color: red;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 0px;
+    }
+
+        footer a:hover {
+            color: #ff5050;
+        }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+        nav ul li {
+            margin: 0px 0;
+        }
+
+    .container {
+        flex-direction: column;
+        margin-top: 60px;
+    }
+
+    .animated-image {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        max-width: 100%;
+        margin: 10px auto;
+    }
+}
+
+img {
+    border-radius: 30px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+    .logo-container img {
+        margin-right: 10px;
+    }
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 150%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #000;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid red;
+    width: 100%;
+    max-width: 400px;
+    color: #fff;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+    .modal-content h2 {
+        color: red;
+    }
+
+    .modal-content label {
+        color: #fff;
+    }
+
+    .modal-content input {
+        background: #222;
+        color: #fff;
+        border: 1px solid red;
+        padding: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .modal-content button {
+        background: red;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    .close:hover,
+    .close:focus {
+        color: red;
+        text-decoration: none;
+    }
+
+.register-link {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    .register-link:hover {
+        text-decoration: underline;
+    }
+.forgot-password {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    .forgot-password:hover {
+        text-decoration: underline;
+    }

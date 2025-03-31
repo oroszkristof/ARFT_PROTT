@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="site.css">
+    <title>Főoldal</title>
+    
+</head>
+<body>
+  
+    <header>
+        <div class="logo-container">
+            <a href="index.html"><img src="logo.webp" alt="Logo" width="50px" height="50px"></a>
+            <a class="logo" href="index.html">REDGOLD MARKETS</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Árfolyamfigyelő</a></li>
+                <li><a href="#">Hírek</a></li>
+                <li><a href="#">Portfóliókezelés</a></li>
+                <li><a href="#">EdgeAl</a></li>
+                <li><a href="#"><b>Fiókom</b></a></li>
+                <li><a href="index.html"><b>BELÉPÉS</b></a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="left-side">
+            <h1>Csatlakozz hozzánk! - Piacok mozgásban, profit a célkeresztben!</h1>
+            <h3>Mesterséges Inteligencia ajánlásokkal!</h3>
+            <br>
+            <a class="cta-button" href="#">VÁGJ BELE!</a>
+        </div>
+        <div class="right-side"></div>
+    </div>
+    <img src="grafikon.webp" alt="Grafikon" class="animated-image" />
+    
+    <footer>
+        <a href="#">ÁSZF</a>
+        <a href="#">ADATVÉDELMI TÁJÉKOZTATÓ</a>
+       <a href="#">RÓLUNK</a>
+        <a href="#" class="newsletter-link">HÍRLEVÉL</a>
+        <a href="#">SÚGÓ</a>
+    </footer>
+  
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Bejelentkezés</h2> <br>
+            <form autocomplete="off">
+                <label for="email">Email cím:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Jelszó:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Belépés</button>
+                <br><br>
+                
+                <a href="#" class="register-link"><i>Nincs fiókja? Ide kattintva regisztrálhat!</i></a>
+                <br>
+                <a href="#" class="forgot-password" style="color: red;"><i>Elfelejtett jelszó?</i></a>
+            </form>
+        </div>
+    </div>
+    
+    
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Regisztráció</h2> <br>
+            <form autocomplete="off">
+                <label for="name">Név:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="emailReg">Email cím:</label>
+                <input type="email" id="emailReg" name="email" required>
+                <label for="passwordReg">Jelszó:</label>
+                <input type="password" id="passwordReg" name="password" required>
+                <label for="passwordConfirm">Jelszó újra:</label>
+                <input type="password" id="passwordConfirm" name="passwordConfirm" required>
+                <button type="submit">Regisztráció</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="passwordResetModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Jelszó visszaállítás</h2> <br>
+            <form autocomplete="off">
+                <label for="resetEmail">Email cím:</label>
+                <input type="email" id="resetEmail" name="resetEmail" required>
+                <button type="submit">Helyreállítás</button>
+            </form>
+        </div>
+    </div>
+    
+    
+    <div id="newsletterModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Iratkozz fel hírlevelünkre!</h2> <br>
+            <form autocomplete="off">
+                <label for="newsletterEmail">Név:</label>
+                <input type="name" id="newsletterEmail" name="newsletterEmail" required>
+                <label for="newsletterEmail">Email cím:</label>
+                <input type="email" id="newsletterEmail" name="newsletterEmail" required>
+                <button type="submit">Feliratkozás</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        const loginModal = document.getElementById("loginModal");
+        const registerModal = document.getElementById("registerModal");
+        const passwordResetModal = document.getElementById("passwordResetModal");
+        const newsletterModal = document.getElementById("newsletterModal");
+        const loginButton = document.querySelector('nav ul li a[href="index.html"]');
+        const ctaButton = document.querySelector('.cta-button');
+        const loginCloseBtn = loginModal.querySelector('.close');
+        const registerCloseBtns = document.querySelectorAll('#registerModal .close');
+        const passwordResetCloseBtn = passwordResetModal.querySelector('.close');
+        const newsletterCloseBtn = newsletterModal.querySelector('.close');
+        const registerLink = document.querySelector('.register-link');
+        const forgotPasswordLink = document.querySelector('.forgot-password');
+        const newsletterLink = document.querySelector('.newsletter-link');
+    
+        function openModal(modal) {
+          modal.style.display = "block";
+        }
+        function closeModal(modal) {
+          modal.style.display = "none";
+        }
+    
+        loginButton.addEventListener("click", function(e) {
+          e.preventDefault();
+          openModal(loginModal);
+        });
+        ctaButton.addEventListener("click", function(e) {
+          e.preventDefault();
+          openModal(loginModal);
+        });
+        loginCloseBtn.addEventListener("click", function(e) {
+          e.preventDefault();
+          closeModal(loginModal);
+        });
+        registerLink.addEventListener("click", function(e) {
+          e.preventDefault();
+          closeModal(loginModal);
+          openModal(registerModal);
+        });
+        forgotPasswordLink.addEventListener("click", function(e) {
+          e.preventDefault();
+          closeModal(loginModal);
+          openModal(passwordResetModal);
+        });
+ 
+        newsletterLink.addEventListener("click", function(e) {
+          e.preventDefault();
+          openModal(newsletterModal);
+        });
+        registerCloseBtns.forEach(function(btn) {
+          btn.addEventListener("click", function(e) {
+            e.preventDefault();
+            closeModal(registerModal);
+          });
+        });
+        passwordResetCloseBtn.addEventListener("click", function(e) {
+          e.preventDefault();
+          closeModal(passwordResetModal);
+        });
+        newsletterCloseBtn.addEventListener("click", function(e) {
+          e.preventDefault();
+          closeModal(newsletterModal);
+        });
+        window.addEventListener("click", function(e) {
+          if (e.target === loginModal) {
+            closeModal(loginModal);
+          }
+          if (e.target === registerModal) {
+            closeModal(registerModal);
+          }
+          if (e.target === passwordResetModal) {
+            closeModal(passwordResetModal);
+          }
+          if (e.target === newsletterModal) {
+            closeModal(newsletterModal);
+          }
+        });
+    </script>
+    
+</body>
+</html>
